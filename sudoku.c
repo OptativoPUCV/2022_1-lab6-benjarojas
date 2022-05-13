@@ -155,7 +155,6 @@ int is_final(Node* n){
 Node* DFS(Node* initial, int* cont){
   Stack* pila = createStack();
   push(pila, initial);
-
   while(get_size(pila) != 0)
   {
     Node* aux = (Node *) top(pila);
@@ -175,7 +174,7 @@ Node* DFS(Node* initial, int* cont){
 
     //*(cont)++;
   }
-  free(initial);
+  //free(initial);
   return NULL;
 }
 
