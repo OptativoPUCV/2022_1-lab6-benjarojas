@@ -155,8 +155,8 @@ int is_valid(Node* n){
         printf("encontrado: %d\n", n->sudo[i][j]);
       }
 
-      printf("%d ",n->sudo[i][j]);
-      if(p%3 == 2) printf("\n");
+      //printf("%d ",n->sudo[i][j]);
+      //if(p%3 == 2) printf("\n");
     }
     if(valIdMatrixFlag == 0)
     {
