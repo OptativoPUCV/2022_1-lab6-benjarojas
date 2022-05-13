@@ -147,8 +147,8 @@ Node* DFS(Node* initial, int* cont){
     }
     free(aux);
     (*cont)++;
-    printf("%d", *cont);
   }
+  printf("%d\n", *cont);
   return NULL;
 }
 
