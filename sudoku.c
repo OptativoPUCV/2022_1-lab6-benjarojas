@@ -121,9 +121,9 @@ int is_valid(Node* n){
 
   if(invalidColumns == 0)
   {
-    printf("\ntodas las filas validas\n");
+    printf("\ntodas las columnas validas\n");
   } else {
-    printf("\nhay 1 o mas fila(s) invalida(s)\n");
+    printf("\nhay 1 o mas columna(s) invalida(s)\n");
   }
 
   /* // iterar cada submatriz
