@@ -44,40 +44,34 @@ void print_node(Node* n){
 }
 
 int is_valid(Node* n){
-
-    for (int i = 0; i < 9; i++)
-    {
-      int k=i,p; 
-      for(p=0;p<9;p++){
-          int i=3*(k/3) + (p/3) ;
-          int j=3*(k%3) + (p%3) ;
-          printf("%d ",n->sudo[i][j]);
-          if(p%3 == 2) printf("\n");
-      }
-      printf("----------\n");
+  // iterar cada submatriz
+  for (int s = 0; s < 9; s++)
+  {
+    int k=s,p; 
+    for(p=0;p<9;p++){
+      int i=3*(k/3) + (p/3) ;
+      int j=3*(k%3) + (p%3) ;
+      // printf("%d ",n->sudo[i][j]);
+      // if(p%3 == 2) printf("\n");
     }
-    
-
-    return 1;
+  } 
+  return 1;
 }
 
-List* get_adj_nodes(Node* n){
-
+List* get_adj_nodes(Node* n){ 
     List* list=createList();
-
     Node* auxNode;
-    int emptyCaseRow = 0;
-    int emptyCaseColumn = 0;
+    int emptyCaseRow, emptyCaseColumn;
     int flagEmptyCase = 0;
 
-    for (int i = 0; i < 8; i++) // iterate rows
+    for (int i = 0; i < 8; i++)
     {
-      for (int j = 0; j < 8; j++) // iterate columns
+      for (int j = 0; j < 8; j++)
       {
         if(n->sudo[i][j] == 0)
         {
-          emptyCaseRow = i; // empty case row subindex
-          emptyCaseColumn = j; // empty case column index
+          emptyCaseRow = i; // indice fila casilla vacia
+          emptyCaseColumn = j; // indice columna casilla vacia
           flagEmptyCase = 1;
           break;
         }
@@ -85,17 +79,17 @@ List* get_adj_nodes(Node* n){
       if(flagEmptyCase) break;
     }
 
-    // if no empty case was found, node is a final solution
+    // si no se encontro ninguna casilla vacia, es estado final
     if(!flagEmptyCase) return list;
 
-    // create adj. nodes replacing empty case for numbers [1..9]
+    // crear nodos adjuntos reemplazando la casilla vacia por [1..9]
     for (int i = 1; i < 10; i++)
     {
-      auxNode = copy(n); // create a copy of node 'n'
+      auxNode = copy(n); // copia del nodo n 'n'
       auxNode->sudo[emptyCaseRow][emptyCaseColumn] = i;
       pushBack(list, auxNode);
     }
-    return list; // return list of states/partial solutions
+    return list; // retornamos la lista de estados
 }
 
 int is_final(Node* n){
