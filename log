@@ -445,3 +445,14 @@ Fri, May 13, 2022  4:29:25 PM:
  tests:  7|1
 total_score: 55/70
 259026f
+Fri, May 13, 2022  4:38:59 PM: 
+ sudoku.c | 1 +
+ 1 file changed, 1 insertion(+)
+In file included from test.c:5:0:
+sudoku.c: In function 'DFS':
+sudoku.c:145:5: error: suggest parentheses around assignment used as truth value [-Werror=parentheses]
+     if(aux = NULL) return NULL;
+     ^~
+cc1.exe: all warnings being treated as errors
+Compilation failed
+6e8aa5a
