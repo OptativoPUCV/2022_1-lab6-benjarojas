@@ -80,8 +80,8 @@ List* get_adj_nodes(Node* n){
     for (int i = 1; i < 10; i++)
     {
       aux = copy(n);
-      print_node(aux);
       aux->sudo[f][c] = i;
+      print_node(aux);
       pushBack(list, aux);
     }
 
