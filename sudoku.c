@@ -75,6 +75,8 @@ List* get_adj_nodes(Node* n){
       if(stop) break;
     }
 
+    if(stop) return NULL;
+
     for (int i = 1; i < 10; i++)
     {
       aux = copy(n);
