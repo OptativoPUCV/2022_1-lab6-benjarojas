@@ -164,7 +164,7 @@ Node* DFS(Node* initial, int* cont){
 
     List* adjList = get_adj_nodes(aux);
 
-    Node* listAux = first(adjList);
+    Node* listAux = (Node *) first(adjList);
 
     while(listAux)
     {
