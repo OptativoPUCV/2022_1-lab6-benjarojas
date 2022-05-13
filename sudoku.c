@@ -54,7 +54,7 @@ int is_valid(Node* n){
           printf("%d ",n->sudo[i][j]);
           if(p%3 == 2) printf("\n");
       }
-      printf("----------\n")
+      printf("----------\n");
     }
     
 
