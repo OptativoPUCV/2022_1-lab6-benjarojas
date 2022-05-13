@@ -145,7 +145,7 @@ Node* DFS(Node* initial, int* cont){
       push(S, listAux);
       listAux = next(adjList);
     }
-    //free(aux);
+    free(aux);
     (*cont)++;
   }
   printf("cont: %d\n", *cont);
