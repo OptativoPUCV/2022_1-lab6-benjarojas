@@ -48,12 +48,11 @@ int is_valid(Node* n){
     return 1;
 }
 
-
 List* get_adj_nodes(Node* n){
 
     List* list=createList();
 
-    Node* aux;
+    Node* auxNode;
     int emptyCaseRow = 0;
     int emptyCaseColumn = 0;
     int flagEmptyCase = 0;
@@ -82,9 +81,9 @@ List* get_adj_nodes(Node* n){
     // la casilla vacia por un numero entre 1 y 9
     for (int i = 1; i < 10; i++)
     {
-      aux = copy(n); // creamos una copia del nodo
-      aux->sudo[emptyCaseRow][emptyCaseColumn] = i;
-      pushBack(list, aux);
+      auxNode = copy(n); // creamos una copia del nodo
+      auxNode->sudo[emptyCaseRow][emptyCaseColumn] = i;
+      pushBack(list, auxNode);
     }
 
     return list;
@@ -92,7 +91,12 @@ List* get_adj_nodes(Node* n){
 
 
 int is_final(Node* n){
-    return 0;
+    for (int i = 0; i < 9; i++)
+    {
+      for (int j = 0; j < 9; i++)
+        if(n->sudo[i][j] == 0) return 0;
+    }
+    return 1;
 }
 
 Node* DFS(Node* initial, int* cont){
