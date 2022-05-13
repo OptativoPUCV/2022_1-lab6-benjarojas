@@ -163,8 +163,7 @@ Node* DFS(Node* initial, int* cont){
 
     if(is_final(aux)) return aux;
 
-    List* adjList = createList();
-    adjList = get_adj_nodes(aux);
+    List* adjList = get_adj_nodes(aux);
 
     Node* listAux = first(adjList);
 
