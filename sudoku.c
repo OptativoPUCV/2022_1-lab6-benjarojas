@@ -72,6 +72,12 @@ int is_valid(Node* n){
         printf("%d encontrado \n", n->sudo[i][j]);
       }  
     }
+    printf("array valid: [");
+    for (int i = 0; i < 10; i++)
+    {
+      printf("%d ", validRow[i]);
+    }
+    printf("]\n\n");
     if(validFlag) printf("columna %d valida\n", i);
   }
 
