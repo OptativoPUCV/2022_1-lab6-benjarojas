@@ -45,6 +45,18 @@ void print_node(Node* n){
 
 int is_valid(Node* n){
 
+    for (int i = 0; i < 9; i++)
+    {
+      int k=i,p; 
+      for(p=0;p<9;p++){
+          int i=3*(k/3) + (p/3) ;
+          int j=3*(k%3) + (p%3) ;
+          printf("%d ",n->sudo[i][j]);
+          if(p%3 == 2) printf("\n");
+      }
+    }
+    
+
     return 1;
 }
 
@@ -57,38 +69,33 @@ List* get_adj_nodes(Node* n){
     int emptyCaseColumn = 0;
     int flagEmptyCase = 0;
 
-    for (int i = 0; i < 8; i++) // iteramos filas
+    for (int i = 0; i < 8; i++) // iterate rows
     {
-      for (int j = 0; j < 8; j++) // iteramos columnas
+      for (int j = 0; j < 8; j++) // iterate columns
       {
         if(n->sudo[i][j] == 0)
         {
-          emptyCaseRow = i; // subindice i de la casilla vacia
-          emptyCaseColumn = j; // subindice j de la casilla vacia
+          emptyCaseRow = i; // empty case row subindex
+          emptyCaseColumn = j; // empty case column index
           flagEmptyCase = 1;
           break;
         }
       }
-      if(flagEmptyCase) break; // si ya encontramos una casilla vacia
+      if(flagEmptyCase) break;
     }
 
-    // si no se encontro una casilla vacia
-    // el sudoku esta completo, retornamos
-    // una lista vacia
+    // if no empty case was found, node is a final solution
     if(!flagEmptyCase) return list;
 
-    // creamos los nodos adyacentes reemplazando
-    // la casilla vacia por un numero entre 1 y 9
+    // create adj. nodes replacing empty case for numbers [1..9]
     for (int i = 1; i < 10; i++)
     {
-      auxNode = copy(n); // creamos una copia del nodo
+      auxNode = copy(n); // create a copy of node 'n'
       auxNode->sudo[emptyCaseRow][emptyCaseColumn] = i;
       pushBack(list, auxNode);
     }
-
-    return list;
+    return list; // return list of states/partial solutions
 }
-
 
 int is_final(Node* n){
     for (int i = 0; i < 9; i++)
