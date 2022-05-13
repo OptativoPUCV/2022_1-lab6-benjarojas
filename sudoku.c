@@ -137,7 +137,7 @@ List* get_adj_nodes(Node* n){
     // crear nodos adjuntos reemplazando la casilla vacia por [1..9]
     for (int i = 1; i < 10; i++)
     {
-      auxNode = copy(n); // copia del nodo n 'n'
+      auxNode = copy(n); // copia del nodo 'n'
       auxNode->sudo[emptyCaseRow][emptyCaseColumn] = i;
       if(is_valid(auxNode))
         pushBack(list, auxNode);
@@ -153,6 +153,28 @@ int is_final(Node* n){
 }
 
 Node* DFS(Node* initial, int* cont){
+  Stack* stateStack = createStack();
+  push(stateStack, initial);
+  while(get_size(stateStack) > 0)
+  {
+    Node* aux = (Node *) top(stateStack);
+    pop(stateStack);
+    if(is_final(aux)) return aux;
+
+    List* adjList = createList();
+
+    adjList = get_adj_nodes(aux);
+
+    Node* listAux = first(adjList);
+
+    while(listAux)
+    {
+      push(stateStack, listAux);
+      listAux = next(adjList);
+    }
+
+    free(initial);
+  }
   return NULL;
 }
 
