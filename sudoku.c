@@ -46,9 +46,8 @@ void print_node(Node* n){
 int is_valid(Node* n){
 
   for (int i = 0; i < 9; i++){
-
+    
     int validRow[10] = {0};
-
     for (int j = 0; j < 9; j++)
     {
       if (validRow[n->sudo[i][j]])
@@ -155,7 +154,7 @@ Node* DFS(Node* initial, int* cont){
       listAux = next(adjList);
     }
     free(aux);
-    cont++;
+    (*cont)++;
   }
   return NULL;
 }
