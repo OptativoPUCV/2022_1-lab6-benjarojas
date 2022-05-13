@@ -45,7 +45,6 @@ void print_node(Node* n){
 
 int is_valid(Node* n){
 
-  int validRow[10] = {0};
   int validFlag = 1;
 
   print_node(n);
