@@ -64,10 +64,9 @@ int is_valid(Node* n){
     {
       if (validRow[n->sudo[i][j]] != 0)
       {
-        printf("columna invalida!!!\n");
+        printf("columna invalida\n");
         printf("%d repetido \n", n->sudo[i][j]);
         validFlag = 0;
-        break;
       }
 
       if (validRow[n->sudo[i][j]] == 0 && n->sudo[i][j] != 0)
@@ -76,20 +75,12 @@ int is_valid(Node* n){
         printf("%d encontrado \n", n->sudo[i][j]);
       }  
     }
-    printf("array valid: [");
-    for (int i = 0; i < 10; i++)
+    if(validFlag == 0)
     {
-      printf("%d ", validRow[i]);
+      printf("hay 1 o mas columna(s) invalida\n");
+    } else {
+      printf("todo valido\n");
     }
-    printf("]\n\n");
-    if(validFlag) printf("columna %d valida\n", i);
-  }
-
-  if(validFlag == 0)
-  {
-    printf("hay 1 o mas columna(s) invalida\n");
-  } else {
-    printf("todo valido\n");
   }
   
 
