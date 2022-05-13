@@ -53,7 +53,6 @@ int is_valid(Node* n){
     if (validRow[n->sudo[0][j]] == 1)
     {
       validFlag = 0;
-      printf("columna invalida \n");
     }
     
     if (validRow[n->sudo[0][j]] == 0 && n->sudo[0][j] != 0)
@@ -61,6 +60,13 @@ int is_valid(Node* n){
       validRow[n->sudo[0][j]] = 1;
       printf("%d encontrado \n", n->sudo[0][j]);
     }  
+  }
+
+  if(validFlag)
+  {
+    printf("columna valida\n");
+  } else {
+    printf("columna invalida\n");
   }
   
 
