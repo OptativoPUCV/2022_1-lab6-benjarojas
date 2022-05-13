@@ -1,0 +1,11 @@
+Thu, May 12, 2022 11:32:51 PM: 
+ sudoku.c | 30 ++++++++++++++++++++++++++++++
+ 1 file changed, 30 insertions(+)
+In file included from test.c:5:0:
+sudoku.c: In function 'get_adj_nodes':
+sudoku.c:80:11: error: assignment makes pointer from integer without a cast [-Werror=int-conversion]
+       aux = copy(n)->sudo[f][c] = i;
+           ^
+cc1.exe: all warnings being treated as errors
+Compilation failed
+7cab593
