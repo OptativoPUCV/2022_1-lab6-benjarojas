@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include "list.h"
 
-
 typedef struct{
    int sudo[9][9];
 }Node;
@@ -97,7 +96,7 @@ List* get_adj_nodes(Node* n){
         {
           emptyCaseRow = i; // indice fila casilla vacia
           emptyCaseColumn = j; // indice columna casilla vacia
-          flagEmptyCase = 1;
+          flagEmptyCase = 1; // flag en caso de encontrar casilla vacia
           break;
         }
       }
@@ -126,6 +125,7 @@ int is_final(Node* n){
 }
 
 Node* DFS(Node* initial, int* cont){
+
   Stack* S = createStack();
   push(S, initial);
 
