@@ -48,8 +48,6 @@ int is_valid(Node* n){
   int validFlag = 1;
   int invalidRows = 0;
 
-  print_node(n);
-
   for (int i = 0; i < 9; i++){
 
     int validRow[10] = {0};
@@ -58,36 +56,14 @@ int is_valid(Node* n){
     for (int j = 0; j < 9; j++)
     {
       if (validRow[n->sudo[i][j]])
-      {
-        printf("%d repetido \n", n->sudo[i][j]);
         validFlag = 0;
-      }
 
       if (validRow[n->sudo[i][j]] == 0 && n->sudo[i][j] != 0)
-      {
         validRow[n->sudo[i][j]] = 1;
-        printf("%d encontrado \n", n->sudo[i][j]);
-      }  
     }
     if(!validFlag)
-    {
-      printf("fila %d invalida\n", i);
       invalidRows++;
-    } else {
-      printf("fila %d valida\n", i);
-    }
   }
-
-  if(invalidRows == 0)
-  {
-    printf("\ntodas las filas validas\n");
-  } else {
-    printf("\nhay 1 o mas fila(s) invalida(s)\n");
-  }
-  
-
-  printf("\n\nanalisis columnas\n\n");
-  print_node(n);
 
   int validColumnFlag = 1;
   int invalidColumns = 0;
@@ -100,35 +76,14 @@ int is_valid(Node* n){
     for (int row = 0; row < 9; row++)
     {
       if (validColumn[n->sudo[row][col]] != 0)
-      {
-        printf("%d repetido \n", n->sudo[row][col]);
         validColumnFlag = 0;
-      }
 
       if (validColumn[n->sudo[row][col]] == 0 && n->sudo[row][col] != 0)
-      {
         validColumn[n->sudo[row][col]] = 1;
-        printf("%d encontrado \n", n->sudo[row][col]);
-      }  
     }
     if(validColumnFlag == 0)
-    {
-      printf("columna %d invalida\n", col);
       invalidColumns++;
-    } else {
-      printf("columna %d valida\n", col);
-    }
   }
-
-  if(invalidColumns == 0)
-  {
-    printf("\ntodas las columnas validas\n");
-  } else {
-    printf("\nhay 1 o mas columna(s) invalida(s)\n");
-  }
-
-
-
 
   // analisis submatrices
 
@@ -144,34 +99,15 @@ int is_valid(Node* n){
       int j=3*(k%3) + (p%3) ;
 
       if (validMatrix[n->sudo[i][j]] != 0)
-      {
-        printf("%d repetido \n", n->sudo[i][j]);
         valIdMatrixFlag = 0;
-      }
 
       if(validMatrix[n->sudo[i][j]] == 0 && n->sudo[i][j] != 0)
-      {
         validMatrix[n->sudo[i][j]] = 1;
-        printf("encontrado: %d\n", n->sudo[i][j]);
-      }
-
+      
       //printf("%d ",n->sudo[i][j]);
       //if(p%3 == 2) printf("\n");
     }
-    if(valIdMatrixFlag == 0)
-    {
-      printf("matriz %d invalida\n", s);
-      invalidMatrixCount++;
-    } else {
-      printf("matriz %d valida\n", s);
-    }
-  }
-
-   if(invalidMatrixCount == 0)
-  {
-    printf("\ntodas las matrices validas\n");
-  } else {
-    printf("\nhay 1 o mas matrices invalida(s)\n");
+    if(valIdMatrixFlag == 0) invalidMatrixCount++;
   }
 
   if(invalidColumns + invalidMatrixCount + invalidRows > 0) return 0;
