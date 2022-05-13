@@ -416,3 +416,20 @@ sudoku.c:48:7: error: variable 'validFlag' set but not used [-Werror=unused-but-
 cc1.exe: all warnings being treated as errors
 Compilation failed
 3f3589c
+Fri, May 13, 2022 12:07:31 PM: 
+ sudoku.c | 10 ----------
+ 1 file changed, 10 deletions(-)
+In file included from test.c:5:0:
+sudoku.c: In function 'is_valid':
+sudoku.c:80:7: error: unused variable 'invalidMatrix' [-Werror=unused-variable]
+   int invalidMatrix = 0;
+       ^~~~~~~~~~~~~
+sudoku.c:64:7: error: unused variable 'invalidColumns' [-Werror=unused-variable]
+   int invalidColumns = 0;
+       ^~~~~~~~~~~~~~
+sudoku.c:48:7: error: unused variable 'invalidRows' [-Werror=unused-variable]
+   int invalidRows = 0;
+       ^~~~~~~~~~~
+cc1.exe: all warnings being treated as errors
+Compilation failed
+cdcb226
