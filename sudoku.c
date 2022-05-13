@@ -64,6 +64,7 @@ int is_valid(Node* n){
       if (validRow[n->sudo[i][j]] == 1)
       {
         printf("columna invalida!!!\n");
+        printf("%d repetido \n", n->sudo[i][j]);
         validFlag = 0;
       }
 
@@ -82,7 +83,7 @@ int is_valid(Node* n){
     if(validFlag) printf("columna %d valida\n", i);
   }
 
-  if(validFlag)
+  if(validFlag == 1)
   {
     printf("todas las columnas son validas\n");
   } else {
