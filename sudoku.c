@@ -85,7 +85,7 @@ int is_valid(Node* n){
       invalidColumns++;
   }
 
-  int invalidMatrixCount = 0;
+  int invalidMatrix = 0;
   int valIdMatrixFlag = 1;
 
   for (int s = 0; s < 9; s++)
@@ -103,10 +103,10 @@ int is_valid(Node* n){
         validMatrix[n->sudo[i][j]] = 1;
     }
 
-    if(valIdMatrixFlag == 0) invalidMatrixCount++;
+    if(valIdMatrixFlag == 0) invalidMatrix++;
   }
 
-  if(invalidColumns + invalidMatrixCount + invalidRows > 0) return 0;
+  if(invalidColumns + invalidMatrix + invalidRows > 0) return 0;
   return 1;
 }
 
