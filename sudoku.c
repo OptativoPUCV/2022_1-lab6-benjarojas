@@ -56,13 +56,11 @@ int is_valid(Node* n){
     for (int j = 0; j < 9; j++)
     {
       if (validRow[n->sudo[i][j]])
-        validFlag = 0;
+        return 0;
 
       if (validRow[n->sudo[i][j]] == 0 && n->sudo[i][j] != 0)
         validRow[n->sudo[i][j]] = 1;
     }
-    if(!validFlag)
-      invalidRows++;
   }
 
   int validColumnFlag = 1;
@@ -76,7 +74,7 @@ int is_valid(Node* n){
     for (int row = 0; row < 9; row++)
     {
       if (validColumn[n->sudo[row][col]] != 0)
-        validColumnFlag = 0;
+        return 0;
 
       if (validColumn[n->sudo[row][col]] == 0 && n->sudo[row][col] != 0)
         validColumn[n->sudo[row][col]] = 1;
@@ -97,7 +95,7 @@ int is_valid(Node* n){
       int j=3*(k%3) + (p%3) ;
 
       if (validMatrix[n->sudo[i][j]] != 0)
-        valIdMatrixFlag = 0;
+        return 0;
 
       if(validMatrix[n->sudo[i][j]] == 0 && n->sudo[i][j] != 0)
         validMatrix[n->sudo[i][j]] = 1;
