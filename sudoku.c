@@ -160,11 +160,10 @@ Node* DFS(Node* initial, int* cont){
   {
     Node* aux = (Node *) top(pila);
     pop(pila);
-    
+
     if(is_final(aux)) return aux;
 
     List* adjList = createList();
-
     adjList = get_adj_nodes(aux);
 
     Node* listAux = first(adjList);
@@ -174,9 +173,8 @@ Node* DFS(Node* initial, int* cont){
       push(pila, listAux);
       listAux = next(adjList);
     }
-
-    free(initial);
   }
+  free(initial);
   return NULL;
 }
 
