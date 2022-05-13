@@ -51,6 +51,13 @@ int is_valid(Node* n){
 
   for (int i = 0; i < 9; i++){
     int validRow[10] = {0};
+    printf("array valid: [");
+    for (int i = 0; i < 10; i++)
+    {
+      printf("%d ", validRow[i]);
+    }
+    printf("]\n\n");
+    
     validFlag = 1;
     for (int j = 0; j < 9; j++)
     {
