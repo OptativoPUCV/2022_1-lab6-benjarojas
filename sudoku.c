@@ -51,6 +51,7 @@ int is_valid(Node* n){
   print_node(n);
 
   for (int i = 0; i < 9; i++){
+    int validRow[20] = {0};
     for (int j = 0; j < 9; j++)
     {
       if (validRow[n->sudo[i][j]] == 1)
@@ -64,7 +65,6 @@ int is_valid(Node* n){
         printf("%d encontrado \n", n->sudo[i][j]);
       }  
     }
-    int validRow[20] = {0};
     validFlag = 1;
     if(validFlag) printf("columna %d valida\n", i);
   }

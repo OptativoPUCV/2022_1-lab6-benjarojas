@@ -180,3 +180,14 @@ sudoku.c:67:9: error: unused variable 'validRow' [-Werror=unused-variable]
 cc1.exe: all warnings being treated as errors
 Compilation failed
 f06ce61
+Fri, May 13, 2022  9:07:30 AM: 
+ sudoku.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+In file included from test.c:5:0:
+sudoku.c: In function 'is_valid':
+sudoku.c:48:7: error: unused variable 'validRow' [-Werror=unused-variable]
+   int validRow[10] = {0};
+       ^~~~~~~~
+cc1.exe: all warnings being treated as errors
+Compilation failed
+3bf0684
