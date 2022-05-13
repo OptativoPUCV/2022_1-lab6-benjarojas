@@ -79,12 +79,52 @@ int is_valid(Node* n){
   }
 
   if(invalidRows == 0)
-    {
-      printf("\ntodas las filas validas\n");
-    } else {
-      printf("\nhay 1 o mas fila(s) invalida(s)\n");
-    }
+  {
+    printf("\ntodas las filas validas\n");
+  } else {
+    printf("\nhay 1 o mas fila(s) invalida(s)\n");
+  }
   
+  int validColumnFlag = 1;
+  int invalidColumns = 0;
+
+  printf("\n\nanalisis columnas\n\n");
+  print_node(n);
+
+  for (int col = 0; col < 9; col++){
+    int validColumn[10] = {0};
+    
+    validColumnFlag = 1;
+
+    for (int row = 0; row < 9; row++)
+    {
+      if (validColumn[n->sudo[row][col]] != 0)
+      {
+        printf("%d repetido \n", n->sudo[row][col]);
+        validColumnFlag = 0;
+      }
+
+      if (validColumn[n->sudo[row][col]] == 0 && n->sudo[row][col] != 0)
+      {
+        validColumn[n->sudo[row][col]] = 1;
+        printf("%d encontrado \n", n->sudo[row][col]);
+      }  
+    }
+    if(validColumnFlag == 0)
+    {
+      printf("columna %d invalida\n", col);
+      invalidColumns++;
+    } else {
+      printf("columna %d valida\n", col);
+    }
+  }
+
+  if(invalidColumns == 0)
+  {
+    printf("\ntodas las filas validas\n");
+  } else {
+    printf("\nhay 1 o mas fila(s) invalida(s)\n");
+  }
 
   /* // iterar cada submatriz
   for (int s = 0; s < 9; s++)
