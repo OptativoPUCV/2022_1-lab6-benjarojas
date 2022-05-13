@@ -51,13 +51,13 @@ int is_valid(Node* n){
   print_node(n);
 
   for (int i = 0; i < 9; i++){
+
     int validRow[10] = {0};
-    
     validFlag = 1;
 
     for (int j = 0; j < 9; j++)
     {
-      if (validRow[n->sudo[i][j]] != 0)
+      if (validRow[n->sudo[i][j]])
       {
         printf("%d repetido \n", n->sudo[i][j]);
         validFlag = 0;
@@ -69,7 +69,7 @@ int is_valid(Node* n){
         printf("%d encontrado \n", n->sudo[i][j]);
       }  
     }
-    if(validFlag == 0)
+    if(!validFlag)
     {
       printf("fila %d invalida\n", i);
       invalidRows++;
@@ -85,15 +85,16 @@ int is_valid(Node* n){
     printf("\nhay 1 o mas fila(s) invalida(s)\n");
   }
   
-  int validColumnFlag = 1;
-  int invalidColumns = 0;
 
   printf("\n\nanalisis columnas\n\n");
   print_node(n);
 
+  int validColumnFlag = 1;
+  int invalidColumns = 0;
+
   for (int col = 0; col < 9; col++){
+
     int validColumn[10] = {0};
-    
     validColumnFlag = 1;
 
     for (int row = 0; row < 9; row++)
@@ -126,17 +127,53 @@ int is_valid(Node* n){
     printf("\nhay 1 o mas columna(s) invalida(s)\n");
   }
 
-  /* // iterar cada submatriz
+
+
+
+  // analisis submatrices
+
+  int invalidMatrixCount = 0;
+  int valIdMatrixFlag = 1;
+
   for (int s = 0; s < 9; s++)
   {
+    int validMatrix[10] = {0};
     int k=s,p; 
     for(p=0;p<9;p++){
       int i=3*(k/3) + (p/3) ;
       int j=3*(k%3) + (p%3) ;
+
+      if (validMatrix[n->sudo[i][j]] != 0)
+      {
+        printf("%d repetido \n", n->sudo[i][j]);
+        valIdMatrixFlag = 0;
+      }
+
+      if(validMatrix[n->sudo[i][j]] == 0 && n->sudo[i][j] != 0)
+      {
+        validMatrix[n->sudo[i][j]] = 1;
+        printf("encontrado: %d\n", n->sudo[i][j]);
+      }
+
       printf("%d ",n->sudo[i][j]);
       if(p%3 == 2) printf("\n");
     }
-  } */
+    if(valIdMatrixFlag == 0)
+    {
+      printf("matriz %d invalida\n", s);
+      invalidMatrixCount++;
+    } else {
+      printf("matriz %d valida\n", s);
+    }
+  }
+
+   if(invalidColumns == 0)
+  {
+    printf("\ntodas las matrices validas\n");
+  } else {
+    printf("\nhay 1 o mas matrices invalida(s)\n");
+  }
+
 
   return 1;
 }
@@ -185,8 +222,6 @@ int is_final(Node* n){
 Node* DFS(Node* initial, int* cont){
   return NULL;
 }
-
-
 
 /*
 int main( int argc, char *argv[] ){
