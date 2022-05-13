@@ -44,9 +44,7 @@ void print_node(Node* n){
 }
 
 int is_valid(Node* n){
-
-  for (int i = 0; i < 9; i++){
-    
+  for (int i = 0; i < 9; i++){// valida filas
     int validRow[10] = {0};
     for (int j = 0; j < 9; j++)
     {
@@ -58,10 +56,8 @@ int is_valid(Node* n){
     }
   }
 
-  for (int col = 0; col < 9; col++){
-
+  for (int col = 0; col < 9; col++){ // valida columnas
     int validColumn[10] = {0};
-
     for (int row = 0; row < 9; row++)
     {
       if (validColumn[n->sudo[row][col]] != 0)
@@ -71,23 +67,19 @@ int is_valid(Node* n){
         validColumn[n->sudo[row][col]] = 1;
     }
   }
-
-  for (int s = 0; s < 9; s++)
+  for (int s = 0; s < 9; s++) // valida submatrices
   {
     int validMatrix[10] = {0};
     int k=s,p; 
     for(p=0;p<9;p++){
       int i=3*(k/3) + (p/3) ;
       int j=3*(k%3) + (p%3) ;
-
       if (validMatrix[n->sudo[i][j]] != 0)
         return 0;
-
       if(validMatrix[n->sudo[i][j]] == 0 && n->sudo[i][j] != 0)
         validMatrix[n->sudo[i][j]] = 1;
     }
   }
-
   return 1;
 }
 
@@ -128,12 +120,8 @@ List* get_adj_nodes(Node* n){
 
 int is_final(Node* n){
     for (int i = 0; i < 9; i++)
-    {
       for (int j = 0; j < 9; j++)
-      {
         if(n->sudo[i][j] == 0) return 0;
-      }
-    }
     return 1;
 }
 
