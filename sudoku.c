@@ -44,7 +44,27 @@ void print_node(Node* n){
 }
 
 int is_valid(Node* n){
-  // iterar cada submatriz
+
+  int validRow[10] = {0};
+  int validFlag = 1;
+
+  for (int j = 0; j < 9; j++)
+  {
+    if (validRow[n->sudo[0][j]] == 1)
+    {
+      validFlag = 0;
+      printf("columna invalida \n");
+    }
+    
+    if (validRow[n->sudo[0][j]] == 0 && n->sudo[0][j] != 0)
+    {
+      validRow[n->sudo[0][j]] = 1;
+      printf("%d encontrado \n", n->sudo[0][j]);
+    }  
+  }
+  
+
+  /* // iterar cada submatriz
   for (int s = 0; s < 9; s++)
   {
     int k=s,p; 
@@ -54,7 +74,8 @@ int is_valid(Node* n){
       printf("%d ",n->sudo[i][j]);
       if(p%3 == 2) printf("\n");
     }
-  } 
+  } */
+
   return 1;
 }
 

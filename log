@@ -140,3 +140,14 @@ Fri, May 13, 2022  8:50:15 AM:
  tests:  3|3
 total_score: 25/70
 7f79555
+Fri, May 13, 2022  8:59:02 AM: 
+ sudoku.c | 25 +++++++++++++++++++++++--
+ 1 file changed, 23 insertions(+), 2 deletions(-)
+In file included from test.c:5:0:
+sudoku.c: In function 'is_valid':
+sudoku.c:49:7: error: variable 'validFlag' set but not used [-Werror=unused-but-set-variable]
+   int validFlag = 1;
+       ^~~~~~~~~
+cc1.exe: all warnings being treated as errors
+Compilation failed
+022cec6
