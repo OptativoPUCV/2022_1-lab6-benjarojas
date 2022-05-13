@@ -433,3 +433,9 @@ sudoku.c:48:7: error: unused variable 'invalidRows' [-Werror=unused-variable]
 cc1.exe: all warnings being treated as errors
 Compilation failed
 cdcb226
+Fri, May 13, 2022 12:08:07 PM: 
+ sudoku.c | 6 ------
+ 1 file changed, 6 deletions(-)
+ tests:  7|1
+total_score: 55/70
+9326f21

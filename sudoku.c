@@ -45,8 +45,6 @@ void print_node(Node* n){
 
 int is_valid(Node* n){
 
-  int invalidRows = 0;
-
   for (int i = 0; i < 9; i++){
 
     int validRow[10] = {0};
@@ -61,8 +59,6 @@ int is_valid(Node* n){
     }
   }
 
-  int invalidColumns = 0;
-
   for (int col = 0; col < 9; col++){
 
     int validColumn[10] = {0};
@@ -76,8 +72,6 @@ int is_valid(Node* n){
         validColumn[n->sudo[row][col]] = 1;
     }
   }
-
-  int invalidMatrix = 0;
 
   for (int s = 0; s < 9; s++)
   {
