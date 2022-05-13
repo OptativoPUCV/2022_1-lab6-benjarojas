@@ -167,7 +167,7 @@ int is_valid(Node* n){
     }
   }
 
-   if(invalidColumns == 0)
+   if(invalidMatrixCount == 0)
   {
     printf("\ntodas las matrices validas\n");
   } else {
