@@ -174,7 +174,7 @@ int is_valid(Node* n){
     printf("\nhay 1 o mas matrices invalida(s)\n");
   }
 
-
+  if(invalidColumns + invalidMatrixCount + invalidRows > 0) return 0;
   return 1;
 }
 
