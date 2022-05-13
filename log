@@ -104,3 +104,13 @@ Fri, May 13, 2022 12:29:06 AM:
  tests:  3|3
 total_score: 25/70
 07d3e7c
+Fri, May 13, 2022 12:29:24 AM: 
+ sudoku.c | 1 +
+ 1 file changed, 1 insertion(+)
+In file included from test.c:5:0:
+sudoku.c: In function 'is_valid':
+sudoku.c:58:5: error: expected ';' before '}' token
+     }
+     ^
+Compilation failed
+c0c3c3a
