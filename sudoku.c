@@ -46,6 +46,7 @@ void print_node(Node* n){
 int is_valid(Node* n){
 
   int validFlag = 1;
+  int invalidRows = 0;
 
   print_node(n);
 
@@ -70,11 +71,19 @@ int is_valid(Node* n){
     }
     if(validFlag == 0)
     {
-      printf("columna %d invalida\n", i);
+      printf("fila %d invalida\n", i);
+      invalidRows++;
     } else {
-      printf("todo valido\n");
+      printf("fila %d valida\n", i);
     }
   }
+
+  if(invalidRows == 0)
+    {
+      printf("\ntodas las filas validas\n");
+    } else {
+      printf("\nhay 1 o mas fila(s) invalida(s)\n");
+    }
   
 
   /* // iterar cada submatriz
