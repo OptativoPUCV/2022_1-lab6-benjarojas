@@ -157,14 +157,14 @@ Node* DFS(Node* initial, int* cont){
   push(pila, initial);
   while(get_size(pila) != 0)
   {
-    Node* aux = (Node *) top(pila);
+    Node* aux = top(pila);
     pop(pila);
 
     if(is_final(aux)) return aux;
 
     List* adjList = get_adj_nodes(aux);
 
-    Node* listAux = (Node *) first(adjList);
+    Node* listAux = first(adjList);
 
     while(listAux)
     {
