@@ -153,12 +153,14 @@ int is_final(Node* n){
 }
 
 Node* DFS(Node* initial, int* cont){
-  Stack* stateStack = createStack();
-  push(stateStack, initial);
-  while(get_size(stateStack) > 0)
+  Stack* pila = createStack();
+  push(pila, initial);
+
+  while(get_size(pila) > 0)
   {
-    Node* aux = (Node *) top(stateStack);
-    pop(stateStack);
+    Node* aux = (Node *) top(pila);
+    pop(pila);
+    
     if(is_final(aux)) return aux;
 
     List* adjList = createList();
@@ -169,7 +171,7 @@ Node* DFS(Node* initial, int* cont){
 
     while(listAux)
     {
-      push(stateStack, listAux);
+      push(pila, listAux);
       listAux = next(adjList);
     }
 
