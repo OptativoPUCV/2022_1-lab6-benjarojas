@@ -173,6 +173,8 @@ Node* DFS(Node* initial, int* cont){
       push(pila, listAux);
       listAux = next(adjList);
     }
+
+    *(cont)++;
   }
   free(initial);
   return NULL;
