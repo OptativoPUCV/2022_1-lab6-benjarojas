@@ -50,7 +50,7 @@ int is_valid(Node* n){
   print_node(n);
 
   for (int i = 0; i < 9; i++){
-    int validRow[20] = {0};
+    int validRow[10] = {0};
     validFlag = 1;
     for (int j = 0; j < 9; j++)
     {
