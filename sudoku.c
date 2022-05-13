@@ -128,8 +128,12 @@ List* get_adj_nodes(Node* n){
 
 int is_final(Node* n){
     for (int i = 0; i < 9; i++)
+    {
       for (int j = 0; j < 9; j++)
+      {
         if(n->sudo[i][j] == 0) return 0;
+      }
+    }
     return 1;
 }
 
@@ -142,7 +146,6 @@ Node* DFS(Node* initial, int* cont){
     Node* aux = top(S);
     pop(S);
 
-    if(aux == NULL) return NULL;
     if(is_final(aux)) return aux;
 
     List* adjList = get_adj_nodes(aux);
