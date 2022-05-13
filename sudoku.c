@@ -85,8 +85,6 @@ int is_valid(Node* n){
       invalidColumns++;
   }
 
-  // analisis submatrices
-
   int invalidMatrixCount = 0;
   int valIdMatrixFlag = 1;
 
@@ -103,10 +101,8 @@ int is_valid(Node* n){
 
       if(validMatrix[n->sudo[i][j]] == 0 && n->sudo[i][j] != 0)
         validMatrix[n->sudo[i][j]] = 1;
-      
-      //printf("%d ",n->sudo[i][j]);
-      //if(p%3 == 2) printf("\n");
     }
+
     if(valIdMatrixFlag == 0) invalidMatrixCount++;
   }
 
@@ -143,7 +139,8 @@ List* get_adj_nodes(Node* n){
     {
       auxNode = copy(n); // copia del nodo n 'n'
       auxNode->sudo[emptyCaseRow][emptyCaseColumn] = i;
-      pushBack(list, auxNode);
+      if(is_valid(auxNode))
+        pushBack(list, auxNode);
     }
     return list; // retornamos la lista de estados
 }
