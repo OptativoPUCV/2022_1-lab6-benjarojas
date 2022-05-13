@@ -86,7 +86,7 @@ List* get_adj_nodes(Node* n){
     List* list=createList();
     Node* auxNode;
     int emptyCaseRow, emptyCaseColumn;
-    int flagEmptyCase = 0;
+    int flagEmptyCase = 0; // flag en caso de encontrar casilla vacia
 
     for (int i = 0; i < 8; i++)
     {
@@ -96,7 +96,7 @@ List* get_adj_nodes(Node* n){
         {
           emptyCaseRow = i; // indice fila casilla vacia
           emptyCaseColumn = j; // indice columna casilla vacia
-          flagEmptyCase = 1; // flag en caso de encontrar casilla vacia
+          flagEmptyCase = 1;
           break;
         }
       }
