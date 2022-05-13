@@ -64,6 +64,8 @@ int is_valid(Node* n){
         printf("%d encontrado \n", n->sudo[i][j]);
       }  
     }
+    int validRow[20] = {0};
+    validFlag = 1;
     if(validFlag) printf("columna %d valida\n", i);
   }
 
