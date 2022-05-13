@@ -47,14 +47,6 @@ int is_valid(Node* n){
 
     int found[10] = {0};
 
-    //for (int i = 0; i < 9; i++)
-    //{
-      for (int j = 0; j < 9; j++)
-      {
-        found[n->sudo[0][j]] = 1;
-      }
-    //}
-
     print_node(n);
 
     for (int i = 0; i < 10; i++)
@@ -71,34 +63,37 @@ List* get_adj_nodes(Node* n){
 
     List* list=createList();
 
-    Node* aux = copy(n);
-
-    int f = 0;
-    int c = 0;
-
-    int stop = 0;
+    Node* aux;
+    int emptyCaseRow = 0;
+    int emptyCaseColumn = 0;
+    int flagEmptyCase = 0;
 
     for (int i = 0; i < 8; i++) // iteramos filas
     {
       for (int j = 0; j < 8; j++) // iteramos columnas
       {
-        if(aux->sudo[i][j] == 0)
+        if(n->sudo[i][j] == 0)
         {
-          f = i;
-          c = j;
-          stop = 1;
+          emptyCaseRow = i; // subindice i de la casilla vacia
+          emptyCaseColumn = j; // subindice j de la casilla vacia
+          flagEmptyCase = 1;
           break;
         }
       }
-      if(stop) break;
+      if(flagEmptyCase) break; // si ya encontramos una casilla vacia
     }
 
-    if(!stop) return list;
+    // si no se encontro una casilla vacia
+    // el sudoku esta completo, retornamos
+    // una lista vacia
+    if(!flagEmptyCase) return list;
 
+    // creamos los nodos adyacentes reemplazando
+    // la casilla vacia por un numero entre 1 y 9
     for (int i = 1; i < 10; i++)
     {
-      aux = copy(n);
-      aux->sudo[f][c] = i;
+      aux = copy(n); // creamos una copia del nodo
+      aux->sudo[emptyCaseRow][emptyCaseColumn] = i;
       print_node(aux);
       pushBack(list, aux);
     }
