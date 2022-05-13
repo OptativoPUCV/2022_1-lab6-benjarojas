@@ -94,7 +94,6 @@ List* get_adj_nodes(Node* n){
     {
       aux = copy(n); // creamos una copia del nodo
       aux->sudo[emptyCaseRow][emptyCaseColumn] = i;
-      print_node(aux);
       pushBack(list, aux);
     }
 
